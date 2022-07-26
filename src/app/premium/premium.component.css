@@ -1,0 +1,48 @@
+
+    .fa{
+        margin-bottom: 5px !important;
+    }
+    .radius-10 {
+        border-radius: 10px !important;
+    }
+    .border-danger {
+        border-left: 5px solid  #395B64 !important;
+    }
+
+    h5,h4{
+        font-family: 'Rubina';
+        font-weight: 500;
+        font-size: 20px;
+    }
+    p{
+        color: #57667e;
+    }
+    
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    }
+    .bg-gradient-scooter {
+        background: #17ead9;
+        background: -webkit-linear-gradient( 
+    45deg
+     , #17ead9, #6078ea)!important;
+        background: linear-gradient( 
+    45deg
+     , #17ead9, #6078ea)!important;
+    }
+    .text-white {
+        color: #fff!important;
+    }
+    .ms-auto {
+        margin-left: auto!important;
+    }
