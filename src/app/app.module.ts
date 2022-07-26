@@ -10,6 +10,7 @@ import { PremiumComponent } from './premium/premium.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     PremiumComponent,
     LoginComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
