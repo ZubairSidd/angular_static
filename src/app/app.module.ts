@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { SignInComponent } from './sign-in/sign-in.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     AboutComponent,
     ContactComponent,
+    SignInComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
