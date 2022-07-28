@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { BuyPageComponent } from './buy-page/buy-page.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     LoginComponent,
     AboutComponent,
     ContactComponent,
-    SignInComponent
+    SignInComponent,
+    BuyPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
