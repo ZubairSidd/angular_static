@@ -10,7 +10,6 @@
             <div class="row g-0">
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
-
                   <div class="text-center">
                     <img
                       src="assets/img/logo/Logo_bg.png"
@@ -43,7 +42,7 @@
                       />
                       <div
                         *ngIf="email.touched && email.invalid"
-                        class="alert alert-danger"
+                        class="alert alert-danger px-3"
                       >
                         <p *ngIf="email.hasError('required')">
                           email is required
@@ -70,7 +69,6 @@
                           password is required
                         </p>
                       </div>
-
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
@@ -87,23 +85,24 @@
                       </p>
                     </div>
 
-
                     <div
                       class="d-flex align-items-center justify-content-center pb-4"
                     >
                       <p class="mb-0 me-2">Don't have an account?</p>
-                      <button class="login-btn" type="button">
+                      <a
+                        class="login-btn text-white"
+                        type="button"
+                        routerLink="/sign-in"
+                      >
                         Register here
-                      </button>
+                      </a>
                       <!-- <button class="btn" type="button">Register
 
                         here</button> -->
                       <!-- <button type="button" class="btn btn-outline-danger">Create new</button> -->
                       <!-- <p>Don't have an account? <a href="#!" class="mb-0 me-2">Register here</a></p> -->
                     </div>
-
                   </form>
-
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">

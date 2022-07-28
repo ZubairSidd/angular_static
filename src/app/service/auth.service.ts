@@ -1,4 +1,3 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../models/user/login';
@@ -14,4 +13,3 @@ export class AuthService {
     return this.http.post(this.url, loginDetails);
   }
 
-}
