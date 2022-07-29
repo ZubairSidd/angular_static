@@ -12,4 +12,4 @@ export class AuthService {
   login(loginDetails: Login) {
     return this.http.post(this.url, loginDetails);
   }
-
+}
