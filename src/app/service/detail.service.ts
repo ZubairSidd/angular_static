@@ -10,8 +10,8 @@ export class DetailService {
   url: string = 'https://localhost:44397/api/detail';
   constructor(private http: HttpClient) {}
 
-  getDetails() {
-    return this.http.get(`${this.url}/GetAllDetails`);
+  getDetails(): Observable<Detail[]> {
+    return this.http.get<Detail[]>(`${this.url}/GetAllDetails`);
   }
   getDetailById(id: number): Observable<Detail> {
     return this.http.get<Detail>(`${this.url}/getdetail/${id}`);

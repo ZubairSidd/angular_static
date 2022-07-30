@@ -1,36 +1,54 @@
 <!-- ****************************************************** -->
-<div class="services-area pt-120 pb-60"data-background="assets/img/gallery/section_bg02.jpg">
-
-  <section class="h-100 gradient-form mt-30">
-    <div class="container py-2 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-          <div class="card rounded-3 text-black">
-            <div class="row g-0">
-              <div class="col-lg-12">
-                <div class="card radius-10 border-start border-0 border-3 border-danger">
-                  <div class="card-body">
+<div
+  class="services-area pt-120 pb-60"
+  data-background="assets/img/gallery/section_bg02.jpg"
+>
+  <ng-container *ngIf="isVehicle">
+    <h3 class="container">Already Registered Vehicles</h3>
+    <section class="h-100 gradient-form mt-30" *ngFor="let v of vehicleDetails">
+      <div class="container py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-12">
+                  <div
+                    class="card radius-10 border-start border-0 border-3 border-danger"
+                  >
+                    <div class="card-body">
                       <div class="d-flex align-items-center">
-                          <div>
-                              <span class="mb-0 text-secondary"><b>Manufacturer:</b> Honda</span><br>
-                              <span class="mb-0 text-secondary"><b>Model:</b> Shine</span><br>
-                              <span class="mb-0 text-secondary"><b>Reg No:</b> MH01 1221</span>
-                          </div>
-                          <div class="ms-auto"><a href="/plan-page" class="btn btn-outline-dark hero-btn" data-animation="fadeInLeft" data-delay=".8s">INSURE NOW</a>
-                          </div>
+                        <div>
+                          <span class="mb-0 text-secondary"
+                            ><b>Manufacturer:</b> {{ v.manufacturer }}</span
+                          ><br />
+                          <span class="mb-0 text-secondary"
+                            ><b>Model:</b> {{ v.model }}</span
+                          ><br />
+                          <span class="mb-0 text-secondary"
+                            ><b>Reg No:</b> {{ v.reg_number }}</span
+                          >
+                        </div>
+                        <div class="ms-auto">
+                          <a
+                            (click)="availableVehicle(v.id)"
+                            class="btn btn-outline-dark hero-btn"
+                            data-animation="fadeInLeft"
+                            data-delay=".8s"
+                            >INSURE NOW</a
+                          >
+                        </div>
                       </div>
+                    </div>
                   </div>
-               </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-
-
+    </section>
+  </ng-container>
+  <h3 class="container my-3">New Registration</h3>
   <section class="h-100 gradient-form">
     <div class="container py-2 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
