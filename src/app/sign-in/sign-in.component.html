@@ -103,7 +103,9 @@
                       <!-- <i class="fas fa-birthday-cake fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="dob"
-                          >Date of Birth</label
+                          >Date of Birth<strong class="text-danger"
+                            >*</strong
+                          ></label
                         >
                         <input
                           type="date"
@@ -114,6 +116,15 @@
                           required
                           ngModel
                         />
+                      </div>
+                      <br />
+                      <div
+                        *ngIf="dob.touched && dob.invalid"
+                        class="alert alert-danger py-0"
+                      >
+                        <p *ngIf="dob.hasError('required')">
+                          Date of birth is required
+                        </p>
                       </div>
                     </div>
 
@@ -187,7 +198,11 @@
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button type="submit" class="login-btn">
+                      <button
+                        type="submit"
+                        class="login-btn"
+                        [disabled]="signUpForm.invalid"
+                      >
                         Register Now
                       </button>
                     </div>

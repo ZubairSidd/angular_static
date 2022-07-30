@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
+import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 
-
-
 const routes: Routes = [
+
   {path:"",component:HomeComponent},
   {path:"premium",component:PremiumComponent},
   {path:"about",component:AboutComponent},
@@ -19,10 +19,11 @@ const routes: Routes = [
   {path:"buy-page",component:BuyPageComponent},
   {path:"plan-page",component:PlanPageComponent}
 
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
