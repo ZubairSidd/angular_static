@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Detail } from '../models/user/detail';
+import { DetailService } from '../service/detail.service';
 
 @Component({
   selector: 'app-buy-page',
@@ -7,19 +9,30 @@ import { Detail } from '../models/user/detail';
   styleUrls: ['./buy-page.component.css'],
 })
 export class BuyPageComponent implements OnInit {
-  detail: Detail;
-  allDetails: any;
-  constructor() {}
+  detail: Detail = {
+    user_id: 0,
+    manufacturer: '',
+    model: '',
+    purchase_date: new Date(),
+    reg_number: undefined,
+    engine_number: undefined,
+    driving_license: '',
+    chasis_number: '',
+    address: '',
+    type: '',
+  };
+  userDetail: any;
+  constructor(private detailService: DetailService, private router: Router) {}
 
   ngOnInit(): void {
-    this.allDetails = localStorage.getItem('token');
-    this.allDetails = JSON.parse(this.allDetails);
-    console.log(`USER ID: ${this.allDetails.user_id}`);
+    this.userDetail = localStorage.getItem('token');
+    this.userDetail = JSON.parse(this.userDetail);
   }
-  onSubmit(data: any) {
-    console.log(this.detail);
-  }
-  onSelect(data: any) {
-    console.log(data);
+  onSubmit() {
+    this.detail.user_id = this.userDetail.user_id;
+    this.detailService.registerDetail(this.detail).subscribe((res) => {
+      console.log(res);
+      this.router.navigate(['/']);
+    });
   }
 }

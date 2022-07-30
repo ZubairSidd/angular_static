@@ -4,10 +4,10 @@ export interface Detail {
   manufacturer: string;
   model: string;
   purchase_date: Date;
-  reg_number: number;
-  engine_number: number;
+  reg_number?: number;
+  engine_number?: number;
   driving_license: string;
-  chasis_number: number;
-  pincode: string;
+  chasis_number?: string;
+  address: string;
   type: string;
 }
