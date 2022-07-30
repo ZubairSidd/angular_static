@@ -14,29 +14,35 @@
       <div class="col-12">
         <div class="card p-3 mb-25 bg-white">
           <div class="about-product text-center mt-2 mb-2">
-            <img src="assets/img/hero/bike-03.png" width="300">
+            <img src="assets/img/hero/bike-03.png" width="300" />
             <div>
               <h4>Vehicle Details</h4>
             </div>
           </div>
           <div class="row">
-            <div class="col-6" style="border-right:1px solid #dbdcde">
+            <div class="col-6" style="border-right: 1px solid #dbdcde">
               <div class="stats">
                 <div class="d-flex justify-content-between p-price">
-                  <span>Manufacturer</span><span class="text-muted">Honda</span>
+                  <span>Manufacturer</span
+                  ><span class="text-muted">{{ detail.manufacturer }}</span>
                 </div>
                 <div class="d-flex justify-content-between p-price">
-                  <span>Model</span><span class="text-muted">Unicorn</span>
+                  <span>Model</span
+                  ><span class="text-muted">{{ detail.model }}</span>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="stats">
                 <div class="d-flex justify-content-between p-price">
-                  <span>Reg No</span><span class="text-muted">MH 2121</span>
+                  <span>Reg No</span
+                  ><span class="text-muted">{{ detail.reg_number }}</span>
                 </div>
                 <div class="d-flex justify-content-between p-price">
-                  <span>Reg Date</span><span class="text-muted">4/1/2018</span>
+                  <span>Reg Date</span
+                  ><span class="text-muted">{{
+                    detail.purchase_date | date
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -45,13 +51,20 @@
       </div>
       <div class="col-12">
         <div class="row">
-          <div class="col-lg-6 col-md-12 mb-4">
+          <div class="col-lg-6 col-md-12 mb-4" *ngFor="let p of plansByType">
             <div class="card card1 h-100">
               <div class="card-body">
-                <h5 class="card-title">Comprehensive plan</h5>
+                <h5 class="card-title">
+                  {{ allPlans[p.plan_details - 1] }}
+                </h5>
                 <small class="text-muted">Recommended</small>
+                <br />
+                <small class="text-muted"
+                  >Policy Number: <strong>{{ p.policy_number }}</strong></small
+                >
                 <br /><br />
-                <span class="h2">&#8377;789</span>/year <br /><br />
+                <span class="h2">&#8377;{{ p.amount }}</span
+                >/year <br /><br />
                 <div class="d-grid my-3">
                   <a
                     href="#"
@@ -62,22 +75,52 @@
                   >
                 </div>
                 <ul>
-                  <li>
-                    <i class="fa fa-check"></i> Covers damages to your bike
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i> Covers damages to other's
-                    vehicle and property
-                  </li>
-                  <li>
-                    <i class="fa fa-times"></i> Covers health
-                    damages
-                  </li>
+                  <ng-container *ngIf="p.plan_details == 1">
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to your bike
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to other's
+                      vehicle and property
+                    </li>
+                    <li><i class="fa fa-times"></i> Covers health damages</li>
+                  </ng-container>
+                  <ng-container *ngIf="p.plan_details == 2">
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to your bike
+                    </li>
+                    <li>
+                      <i class="fa fa-times" aria-hidden="true"></i> Covers
+                      damages to other's vehicle and property
+                    </li>
+                    <li><i class="fa fa-times"></i> Covers health damages</li>
+                  </ng-container>
+                  <ng-container *ngIf="p.plan_details == 3">
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to your bike
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to other's
+                      vehicle and property
+                    </li>
+                    <li><i class="fa fa-check"></i> Covers health damages</li>
+                  </ng-container>
+                  <ng-container *ngIf="p.plan_details == 4">
+                    <li>
+                      <i class="fa fa-times" aria-hidden="true"></i> Covers
+                      damages to your bike
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Covers damages to other's
+                      vehicle and property
+                    </li>
+                    <li><i class="fa fa-times"></i> Covers health damages</li>
+                  </ng-container>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12 mb-4">
+          <!-- <div class="col-lg-6 col-md-12 mb-4">
             <div class="card card1 h-100">
               <div class="card-body">
                 <h5 class="card-title">Third Party plan</h5>
@@ -102,10 +145,7 @@
                     <i class="fa fa-check"></i> Covers damages to other's
                     vehicle and property
                   </li>
-                  <li>
-                    <i class="fa fa-times"></i> Covers health
-                    damages
-                  </li>
+                  <li><i class="fa fa-times"></i> Covers health damages</li>
                 </ul>
               </div>
             </div>
@@ -134,10 +174,7 @@
                     <i class="fa fa-times" aria-hidden="true"></i> Covers
                     damages to other's vehicle and property
                   </li>
-                  <li>
-                    <i class="fa fa-times"></i> Covers health
-                    damages
-                  </li>
+                  <li><i class="fa fa-times"></i> Covers health damages</li>
                 </ul>
               </div>
             </div>
@@ -163,17 +200,14 @@
                     <i class="fa fa-check"></i> Covers damages to your bike
                   </li>
                   <li>
-                    <i class="fa fa-check"></i> Covers
-                    damages to other's vehicle and property
+                    <i class="fa fa-check"></i> Covers damages to other's
+                    vehicle and property
                   </li>
-                  <li>
-                    <i class="fa fa-check"></i> Covers health
-                    damages
-                  </li>
+                  <li><i class="fa fa-check"></i> Covers health damages</li>
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

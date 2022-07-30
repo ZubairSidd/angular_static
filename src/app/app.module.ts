@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
-
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,15 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
     ContactComponent,
     SignInComponent,
     BuyPageComponent,
-    PlanPageComponent
+    PlanPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    OrderModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
