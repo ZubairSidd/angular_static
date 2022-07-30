@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
     ContactComponent,
     SignInComponent,
     BuyPageComponent,
-    PlanPageComponent
+    PlanPageComponent,
+    CheckoutComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
