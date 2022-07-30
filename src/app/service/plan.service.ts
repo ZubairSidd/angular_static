@@ -13,4 +13,7 @@ export class PlanService {
   getPlans(): Observable<Plan[]> {
     return this.http.get<Plan[]>(`${this.url}/GetAllPlans`);
   }
+  getPlanById(id: number): Observable<Plan> {
+    return this.http.get<Plan>(`${this.url}/getplan/${id}`);
+  }
 }
