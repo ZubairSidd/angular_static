@@ -18,8 +18,10 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'buy-page', component: BuyPageComponent },
   { path: 'buy-page/:id/plan-page', component: PlanPageComponent },
-  {path:"checkout",component:CheckoutComponent}
-
+  {
+    path: 'buy-page/:detail_id/plan-page/:plan_id/checkout',
+    component: CheckoutComponent,
+  },
 ];
 
 @NgModule({
