@@ -1,10 +1,38 @@
 <!-- ****************************************************** -->
-<div
-  class="services-area pt-120 pb-60"
-  data-background="assets/img/gallery/section_bg02.jpg"
->
+<div class="services-area pt-120 pb-60"data-background="assets/img/gallery/section_bg02.jpg">
+
+  <section class="h-100 gradient-form mt-30">
+    <div class="container py-2 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-12">
+                <div class="card radius-10 border-start border-0 border-3 border-danger">
+                  <div class="card-body">
+                      <div class="d-flex align-items-center">
+                          <div>
+                              <span class="mb-0 text-secondary"><b>Manufacturer:</b> Honda</span><br>
+                              <span class="mb-0 text-secondary"><b>Model:</b> Shine</span><br>
+                              <span class="mb-0 text-secondary"><b>Reg No:</b> MH01 1221</span>
+                          </div>
+                          <div class="ms-auto"><a href="/plan-page" class="btn btn-outline-dark hero-btn" data-animation="fadeInLeft" data-delay=".8s">INSURE NOW</a>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <section class="h-100 gradient-form">
-    <div class="container py-5 h-100">
+    <div class="container py-2 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
           <div class="card rounded-3 text-black">
@@ -19,7 +47,6 @@
                     />
                     <h4 class="mt-1 mb-5 pb-1">Enter Vehicle Details</h4>
                   </div>
-
 
                   <form #detailsForm="ngForm" (submit)="onSubmit()">
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -56,6 +83,7 @@
                             class="form-check-input"
                             value="Car"
                             [(ngModel)]="detail.type"
+                            required
                           />
                           <label for="Car" class="form-check-label">Car</label>
                         </div>
@@ -68,19 +96,26 @@
                             id="Car"
                             value="Bike"
                             [(ngModel)]="detail.type"
+                            required
                           />
                           <label for="Bike" class="form-check-label"
                             >Bike</label
                           >
                         </div>
-
+                        <div
+                          *ngIf="type.touched && type.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="type.hasError('required')">
+                            Vehicle type is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="manufacturer"
                           >Manufacturer<strong class="text-danger"
                             >*</strong
@@ -94,6 +129,7 @@
                           placeholder="Enter Manufacturer Name"
                           name="manufacturer"
                           [(ngModel)]="detail.manufacturer"
+                          required
                         />
                         <div
                           *ngIf="manufacturer.touched && manufacturer.invalid"
@@ -103,14 +139,12 @@
                             Vehicle manufacturer is required
                           </p>
                         </div>
-
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="model"
                           >Model<strong class="text-danger">*</strong>
                         </label>
@@ -122,15 +156,22 @@
                           placeholder="Enter Model Name"
                           name="model"
                           [(ngModel)]="detail.model"
-
+                          required
                         />
+                        <div
+                          *ngIf="model.touched && model.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="model.hasError('required')">
+                            Vehicle model is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-birthday-cake fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="purchase_date"
                           >Purchase Date
                           <strong class="text-danger">*</strong>
@@ -142,15 +183,22 @@
                           [(ngModel)]="detail.purchase_date"
                           class="form-control"
                           name="purchase_date"
-
+                          required
                         />
+                        <div
+                          *ngIf="purchase_date.touched && purchase_date.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="purchase_date.hasError('required')">
+                            Vehicle purchase date is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="reg_number"
                           >Registration Number<strong class="text-danger"
                             >*</strong
@@ -164,15 +212,22 @@
                           class="form-control"
                           placeholder="Enter Registration Number"
                           name="reg_number"
-
+                          required
                         />
+                        <div
+                          *ngIf="reg_number.touched && reg_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="reg_number.hasError('required')">
+                            Vehicle registration number is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="chasis_number"
                           >Chasis Number<strong class="text-danger"
                             >*</strong
@@ -186,7 +241,16 @@
                           class="form-control"
                           placeholder="Enter Chasis Number"
                           name="chasis_number"
+                          required
                         />
+                        <div
+                          *ngIf="chasis_number.touched && chasis_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="chasis_number.hasError('required')">
+                            Vehicle chasis number is required
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -205,15 +269,22 @@
                           class="form-control"
                           placeholder="Enter Engine Number"
                           name="engine_number"
-
+                          required
                         />
+                        <div
+                          *ngIf="engine_number.touched && engine_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="engine_number.hasError('required')">
+                            Vehicle engine number is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
                       <div class="form-outline flex-fill mb-0">
-
                         <label class="form-label" for="driving_license"
                           >Driving License Number<strong class="text-danger"
                             >*</strong
@@ -227,11 +298,20 @@
                           class="form-control"
                           placeholder="Enter Driving License Number"
                           name="driving_license"
-
+                          required
                         />
+                        <div
+                          *ngIf="
+                            driving_license.touched && driving_license.invalid
+                          "
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="driving_license.hasError('required')">
+                            driving license number is required
+                          </p>
+                        </div>
                       </div>
                     </div>
-
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
@@ -242,19 +322,31 @@
                         <input
                           type="text"
                           id="pincode"
-                          #pincode="ngModel"
+                          #address="ngModel"
                           [(ngModel)]="detail.address"
                           class="form-control"
                           placeholder="Enter Adress"
-                          name="pincode"
+                          name="address"
+                          required
                         />
+                        <div
+                          *ngIf="address.touched && address.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="address.hasError('required')">
+                            Address is required
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button type="submit" class="login-btn text-white">
+                      <button
+                        type="submit"
+                        class="login-btn text-white"
+                        [disabled]="detailsForm.invalid"
+                      >
                         Proceed
-
                       </button>
                     </div>
                   </form>

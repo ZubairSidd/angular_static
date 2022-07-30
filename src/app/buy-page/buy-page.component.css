@@ -83,3 +83,10 @@
     font-size: 14px;
     text-decoration: none;
 }
+
+.border-danger {
+  border-left: 5px solid  #395B64 !important;
+}
+b{
+  color:black;
+}
