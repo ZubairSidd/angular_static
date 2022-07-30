@@ -30,7 +30,9 @@
                     *ngIf="!checkLogin()"
                   >
                     <div class="form-outline mb-4 form-group">
-                      <label class="form-label" for="username">Email</label>
+                      <label class="form-label" for="username"
+                        >Email<strong class="text-danger">*</strong></label
+                      >
                       <input
                         type="email"
                         name="email"
@@ -51,7 +53,9 @@
                     </div>
 
                     <div class="form-outline mb-4 form-group">
-                      <label class="form-label" for="password">Password</label>
+                      <label class="form-label" for="password"
+                        >Password<strong class="text-danger">*</strong></label
+                      >
                       <input
                         type="password"
                         name="password"

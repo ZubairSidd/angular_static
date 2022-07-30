@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Login } from '../models/user/login';
 
 @Injectable({
@@ -11,6 +12,14 @@ export class AuthService {
 
   login(loginDetails: Login) {
     return this.http.post(this.url, loginDetails);
+  }
+
+
+  checkLogin() {
+    if (localStorage.getItem('token')) {
+      return true;
+    }
+    return false;
   }
 
 }

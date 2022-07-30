@@ -13,23 +13,35 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
-  errorMessage: string | null;
+  errorMessage: string | undefined;
   constructor(private router: Router, private _service: AuthService) {}
 
   ngOnInit(): void {}
 
-  async onSubmit() {
+  onSubmit() {
     this._service.login(this.loginDetails).subscribe(
-      async (data) => {
-        await localStorage.setItem('token', JSON.stringify(data));
-        await this.router.navigate(['/']).then(() => {
+      (data) => {
+        localStorage.setItem('token', JSON.stringify(data));
+        this.router.navigate(['/']).then(() => {
           window.location.reload();
         });
       },
-      (err) => {
+      () => {
         this.errorMessage = 'Email id or Password is incorrect';
       }
     );
+
+    // this._service.login(this.loginDetails).subscribe(
+    //   (data) => {
+    //     localStorage.setItem('token', JSON.stringify(data));
+    //     this.router.navigate(['/']).then(() => {
+    //       window.location.reload();
+    //     });
+    //   },
+    // () => {
+    //   this.errorMessage = 'Email id or Password is incorrect';
+    // }
+    // );
 
     // window.localStorage.setItem(
     //   'userDetails',
