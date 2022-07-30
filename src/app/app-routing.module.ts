@@ -11,16 +11,14 @@ import { PremiumComponent } from './premium/premium.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
-
-  {path:"",component:HomeComponent},
-  {path:"premium",component:PremiumComponent},
-  {path:"about",component:AboutComponent},
-  {path:"login",component:LoginComponent},
-  {path:"sign-in",component:SignInComponent},
-  {path:"buy-page",component:BuyPageComponent},
-  {path:"plan-page",component:PlanPageComponent},
+  { path: '', component: HomeComponent },
+  { path: 'premium', component: PremiumComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'buy-page', component: BuyPageComponent },
+  { path: 'buy-page/:id/plan-page', component: PlanPageComponent },
   {path:"checkout",component:CheckoutComponent}
-
 
 ];
 

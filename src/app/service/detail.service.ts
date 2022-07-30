@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Detail } from '../models/user/detail';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +12,9 @@ export class DetailService {
 
   getDetails() {
     return this.http.get(`${this.url}/GetAllDetails`);
+  }
+  getDetailById(id: number): Observable<Detail> {
+    return this.http.get<Detail>(`${this.url}/getdetail/${id}`);
   }
   registerDetail(detail: any) {
     return this.http.post(`${this.url}/register`, detail);

@@ -41,8 +41,10 @@
                     <li>
                       <a href="#">Services</a>
                       <ul class="submenu">
-
                         <li><a routerLink="/buy-page">Buy Insurance</a></li>
+                        <li>
+                          <a routerLink="/buy-page/1/plan-page">Policy</a>
+                        </li>
 
                         <li><a href="#">Travel Insurance</a></li>
                       </ul>
@@ -56,7 +58,9 @@
                         href="/login"
                         onMouseOver="this.style.color='#2C3333'"
                         style="text-decoration: none"
-                        ><button type="button" class="btn btn-outline-dark">Login</button></a
+                        ><button type="button" class="btn btn-outline-dark">
+                          Login
+                        </button></a
                       >
                     </li>
                     <li *ngIf="checkLogin() == true">

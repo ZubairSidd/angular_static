@@ -15,6 +15,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -32,7 +33,13 @@ import { CheckoutComponent } from './checkout/checkout.component';
     PlanPageComponent,
     CheckoutComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    OrderModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
