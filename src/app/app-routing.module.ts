@@ -16,8 +16,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   {
     path: 'buy-insurance',
-    component: BuyPageComponent,
-    canActivate: [AuthGuard],
+    component: BuyPageComponent
   },
 ];
 

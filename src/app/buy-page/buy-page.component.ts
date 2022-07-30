@@ -8,10 +8,14 @@ import { Detail } from '../models/user/detail';
 })
 export class BuyPageComponent implements OnInit {
   detail: Detail;
-
+  allDetails: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.allDetails = localStorage.getItem('token');
+    this.allDetails = JSON.parse(this.allDetails);
+    console.log(`USER ID: ${this.allDetails.user_id}`);
+  }
   onSubmit(data: any) {
     console.log(this.detail);
   }
