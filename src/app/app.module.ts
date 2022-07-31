@@ -15,6 +15,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { UserComponent } from './profile/user/user.component';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +32,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BuyPageComponent,
     PlanPageComponent,
     CheckoutComponent,
+    UserComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

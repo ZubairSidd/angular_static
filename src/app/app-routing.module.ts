@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
+import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'profile/user',component:UserComponent}
 ];
 
 @NgModule({
