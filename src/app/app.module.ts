@@ -16,6 +16,10 @@ import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserComponent } from './profile/user/user.component';
+import { ClaimComponent } from './admin/claim/claim.component';
+import { PaymentComponent } from './admin/payment/payment.component';
+import { PolicyComponent } from './admin/policy/policy.component';
+import { UsersComponent } from './admin/users/users.component';
 
 
 @NgModule({
@@ -32,7 +36,11 @@ import { UserComponent } from './profile/user/user.component';
     BuyPageComponent,
     PlanPageComponent,
     CheckoutComponent,
-    UserComponent
+    UserComponent,
+    ClaimComponent,
+    PaymentComponent,
+    PolicyComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
