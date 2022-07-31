@@ -22,8 +22,6 @@ import { PaymentComponent } from './admin/payment/payment.component';
 import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,18 +37,13 @@ import { UsersComponent } from './admin/users/users.component';
     PlanPageComponent,
     CheckoutComponent,
     UserComponent,
-    RenewComponent
+    RenewComponent,
     ClaimComponent,
     PaymentComponent,
     PolicyComponent,
-    UsersComponent
+    UsersComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
