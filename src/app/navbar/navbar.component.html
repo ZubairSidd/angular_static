@@ -62,7 +62,7 @@
                     <li *ngIf="checkLogin() == true">
                       <a>Welcome {{ userDetails.name.split(" ")[0] }}</a>
                       <ul class="submenu">
-                        <li><a href="/profile/user">Profile</a></li>
+                        <li><a routerLink="/profile/user">Profile</a></li>
                         <li>
                           <a (click)="logout()">Logout</a>
                         </li>
