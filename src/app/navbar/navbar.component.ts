@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user/user';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  userDetails: any | null;
+  userDetails: any;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // if the user is logged in, then get the user details
     if (this.checkLogin()) {
       this.userDetails = window.localStorage.getItem('token');
       this.userDetails = JSON.parse(this.userDetails);
@@ -19,12 +21,14 @@ export class NavbarComponent implements OnInit {
     console.log(JSON.parse(this.userDetails));
   }
 
+  // check if the user is logged in
   checkLogin() {
     if (localStorage.getItem('token')) {
       return true;
     }
     return false;
   }
+  // logout the user and clear the localStorage
   logout() {
     window.localStorage.clear();
     this.userDetails = null;

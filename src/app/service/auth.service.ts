@@ -14,12 +14,11 @@ export class AuthService {
     return this.http.post(this.url, loginDetails);
   }
 
-
+  // check if user is logged in
   checkLogin() {
     if (localStorage.getItem('token')) {
       return true;
     }
     return false;
   }
-
 }

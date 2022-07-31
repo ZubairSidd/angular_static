@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'buy-page', component: BuyPageComponent, canActivate: [AuthGuard] },
   {
-    path: 'buy-page/:id/plan-page',
+    path: 'buy-page/:detail_id/plan-page',
     component: PlanPageComponent,
     canActivate: [AuthGuard],
   },
