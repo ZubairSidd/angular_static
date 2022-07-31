@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user/user';
+import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -19,4 +24,5 @@ export class SignInComponent implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+  isLogin: boolean = this.auth.checkLogin();
 }

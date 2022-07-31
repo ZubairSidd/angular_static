@@ -14,8 +14,23 @@ export class PurchaseService {
   getPurchases(): Observable<Purchase[]> {
     return this.http.get<Purchase[]>(`${this.url}/getallpurchases`);
   }
+
+  // get purchase by id
+  getPurchaseById(id: number): Observable<Purchase> {
+    return this.http.get<Purchase>(`${this.url}/GetPurchase/${id}`);
+  }
   // create purchase
   createPurchase(purchase: Purchase): Observable<Purchase> {
     return this.http.post<Purchase>(`${this.url}/register`, purchase);
+  }
+  // update purchase
+  updatePurchase(
+    purchase_id: number,
+    purchase: Purchase
+  ): Observable<Purchase> {
+    return this.http.put<Purchase>(
+      `${this.url}/update/${purchase_id}`,
+      purchase
+    );
   }
 }

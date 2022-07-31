@@ -16,6 +16,7 @@ import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserComponent } from './profile/user/user.component';
+import { RenewComponent } from './checkout/renew/renew.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { UserComponent } from './profile/user/user.component';
     BuyPageComponent,
     PlanPageComponent,
     CheckoutComponent,
-    UserComponent
+    UserComponent,
+    RenewComponent
   ],
   imports: [
     BrowserModule,

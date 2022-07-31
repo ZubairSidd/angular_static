@@ -4,7 +4,6 @@ import { Plan } from '../models/plan';
 import { Payment } from '../models/purchase/payment';
 import { Purchase } from '../models/purchase/purchase';
 import { Detail } from '../models/user/detail';
-import { User } from '../models/user/user';
 import { DetailService } from '../service/detail.service';
 import { PlanService } from '../service/plan.service';
 import { PaymentService } from '../service/purchase/payment.service';
@@ -27,8 +26,18 @@ export class CheckoutComponent implements OnInit {
     'Premium plan',
     'Third party plan',
   ];
-  purchase: Purchase;
-  payment: Payment;
+  purchase: Purchase = {
+    detail_id: 0,
+    plan_id: 0,
+    dop: new Date(),
+    end_date: new Date(),
+    status: 0,
+  };
+  payment: Payment = {
+    user_id: 0,
+    date: new Date(),
+    purchase_id: 0,
+  };
   constructor(
     private detailService: DetailService,
     private planService: PlanService,
@@ -46,17 +55,20 @@ export class CheckoutComponent implements OnInit {
 
     // get user details from localStorage if user is logged in
     this.userDetails = localStorage.getItem('token');
+
     // the userDetails is a string, so we need to parse it to JSON
     this.userDetails = JSON.parse(this.userDetails);
+
     // get plan details by id
     await this.planService.getPlanById(this.plan_id).subscribe((data) => {
       this.planDetails = data;
       this.purchase.plan_id = Number(this.plan_id);
     });
+
     // get vehicle details by detail_id
     await this.detailService.getDetailById(this.detail_id).subscribe((data) => {
       this.vehicleDetails = data;
-      this.purchase.details_id = Number(this.detail_id);
+      this.purchase.detail_id = Number(this.detail_id);
     });
   }
 
@@ -81,7 +93,7 @@ export class CheckoutComponent implements OnInit {
       // add payment to database
       this.paymentService.createPayment(this.payment).subscribe((data) => {
         console.log(`Payment created: ${data}`);
-        this.router.navigate(['/']);
+        this.router.navigate(['/profile/user']);
       });
     });
   }
