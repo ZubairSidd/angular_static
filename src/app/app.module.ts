@@ -18,7 +18,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { UserComponent } from './profile/user/user.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
