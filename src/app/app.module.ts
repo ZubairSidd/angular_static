@@ -15,7 +15,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { PlanPageComponent } from './plan-page/plan-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderModule } from 'ngx-order-pipe';
+import { UserComponent } from './profile/user/user.component';
+
 
 
 @NgModule({
@@ -31,14 +32,14 @@ import { OrderModule } from 'ngx-order-pipe';
     SignInComponent,
     BuyPageComponent,
     PlanPageComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    OrderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
