@@ -87,7 +87,6 @@ export class RenewComponent implements OnInit {
       this.purchase.dop.getMonth(),
       this.purchase.dop.getDate()
     );
-    console.log(this.purchase);
 
     // update purchase details
     this.purchaseService
@@ -95,10 +94,12 @@ export class RenewComponent implements OnInit {
       .subscribe(() => {
         this.renewal.user_id = Number(this.vehicleDetails.user_id);
         this.renewal.purchase_id = Number(this.purchase.id);
+        // create new renewal
         this.renewalService.registerRenewal(this.renewal).subscribe(() => {
           this.payment.user_id = Number(this.vehicleDetails.user_id);
           this.payment.purchase_id = Number(this.purchase.id);
           this.payment.date = new Date();
+          // create new payment
           this.paymentService.createPayment(this.payment).subscribe(() => {
             this.router.navigate(['/profile/user']);
           });

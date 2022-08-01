@@ -45,6 +45,7 @@
             <tr>
               <th class="th-sm">Claim ID</th>
               <th class="th-sm">User ID</th>
+              <th class="th-sm">Name</th>
               <th class="th-sm">Payment ID</th>
               <th class="th-sm">Reason</th>
               <th class="th-sm">Amount</th>
@@ -55,10 +56,24 @@
             <tr *ngFor="let c of allClaims">
               <td>{{ c.claim_no }}</td>
               <td>{{ c.user_id }}</td>
+              <ng-container *ngFor="let u of allUsers">
+                <ng-container *ngIf="u.user_id == c.user_id">
+                  <td>{{ u.name }}</td>
+                </ng-container>
+              </ng-container>
               <td>{{ c.pay_id }}</td>
               <td>{{ c.reason }}</td>
               <td>{{ c.amount }}</td>
-              <td><a class="btn">Claim</a></td>
+              <ng-container *ngIf="c.status == 1">
+                <td>
+                  <a class="btn" (click)="onClick(c.claim_no, c.pay_id)"
+                    >Claim</a
+                  >
+                </td>
+              </ng-container>
+              <ng-container *ngIf="c.status == 2">
+                <td>Already Claimed</td>
+              </ng-container>
             </tr>
           </tbody>
         </table>

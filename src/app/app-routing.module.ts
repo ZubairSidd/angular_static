@@ -54,9 +54,17 @@ const routes: Routes = [
     component: PolicyComponent,
     canActivate: [AdminGuard],
   },
- 
-  { path:'claim-form',component:ClaimFormComponent}
-  
+  {
+    path: 'admin/users',
+    component: UsersComponent,
+    canActivate: [AdminGuard],
+  },
+
+  {
+    path: 'claim/:purchase_id',
+    component: ClaimFormComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
