@@ -21,6 +21,7 @@ import { ClaimComponent } from './admin/claim/claim.component';
 import { PaymentComponent } from './admin/payment/payment.component';
 import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
+import { ClaimFormComponent } from './claim-form/claim-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UsersComponent } from './admin/users/users.component';
     PaymentComponent,
     PolicyComponent,
     UsersComponent,
+    ClaimFormComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
