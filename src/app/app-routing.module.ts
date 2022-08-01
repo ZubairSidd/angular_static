@@ -16,6 +16,7 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
 import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,9 +46,8 @@ const routes: Routes = [
   { path:'admin/payment',component:PaymentComponent},
   { path:'admin/policy',component:PolicyComponent},
   { path:'admin/users',component:UsersComponent},
-  { path:'claim-form',component:ClaimFormComponent}
-  
-
+  { path:'claim-form',component:ClaimFormComponent},
+  { path:'travel-plan',component:TravelPlanComponent}
 
 ];
 

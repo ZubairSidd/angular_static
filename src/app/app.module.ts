@@ -22,6 +22,7 @@ import { PaymentComponent } from './admin/payment/payment.component';
 import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
+import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 
 
 
@@ -40,12 +41,13 @@ import { ClaimFormComponent } from './claim-form/claim-form.component';
     PlanPageComponent,
     CheckoutComponent,
     UserComponent,
-    RenewComponent
+    RenewComponent,
     ClaimComponent,
     PaymentComponent,
     PolicyComponent,
     UsersComponent,
-    ClaimFormComponent
+    ClaimFormComponent,
+    TravelPlanComponent
   ],
   imports: [
     BrowserModule,
