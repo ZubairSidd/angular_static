@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user/user';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { User } from '../models/user/user';
 })
 export class NavbarComponent implements OnInit {
   userDetails: any;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
+  isAdmin: boolean = this.auth.isAdmin();
 
   ngOnInit(): void {
     // if the user is logged in, then get the user details
@@ -32,6 +34,12 @@ export class NavbarComponent implements OnInit {
   logout() {
     window.localStorage.clear();
     this.userDetails = null;
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
+  }
+  logoutAdmin() {
+    window.localStorage.clear();
     this.router.navigate(['/']).then(() => {
       window.location.reload();
     });

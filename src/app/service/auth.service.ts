@@ -21,4 +21,10 @@ export class AuthService {
     }
     return false;
   }
+  isAdmin() {
+    if (localStorage.getItem('admin')) {
+      return true;
+    }
+    return false;
+  }
 }

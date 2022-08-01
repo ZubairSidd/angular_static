@@ -9,6 +9,7 @@ import { BuyPageComponent } from './buy-page/buy-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { RenewComponent } from './checkout/renew/renew.component';
+import { AdminGuard } from './guard/admin.guard';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -41,14 +42,21 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
-  { path:'admin/claim',component:ClaimComponent},
-  { path:'admin/payment',component:PaymentComponent},
-  { path:'admin/policy',component:PolicyComponent},
-  { path:'admin/users',component:UsersComponent},
+
+  { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
+  {
+    path: 'admin/payment',
+    component: PaymentComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/policy',
+    component: PolicyComponent,
+    canActivate: [AdminGuard],
+  },
+ 
   { path:'claim-form',component:ClaimFormComponent}
   
-
-
 ];
 
 @NgModule({
