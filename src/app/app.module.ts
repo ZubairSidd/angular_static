@@ -20,6 +20,7 @@ import { ClaimComponent } from './admin/claim/claim.component';
 import { PaymentComponent } from './admin/payment/payment.component';
 import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
+import { ClaimFormComponent } from './claim-form/claim-form.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UsersComponent } from './admin/users/users.component';
     ClaimComponent,
     PaymentComponent,
     PolicyComponent,
-    UsersComponent
+    UsersComponent,
+    ClaimFormComponent
   ],
   imports: [
     BrowserModule,

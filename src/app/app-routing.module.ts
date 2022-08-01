@@ -7,6 +7,7 @@ import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path:'admin/claim',component:ClaimComponent},
   { path:'admin/payment',component:PaymentComponent},
   { path:'admin/policy',component:PolicyComponent},
-  { path:'admin/users',component:UsersComponent}
+  { path:'admin/users',component:UsersComponent},
+  { path:'claim-form',component:ClaimFormComponent}
   
 
 ];
