@@ -17,13 +17,18 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
 import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'premium', component: PremiumComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'login/forgot', component: ForgetPasswordComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'buy-page', component: BuyPageComponent, canActivate: [AuthGuard] },
   {
