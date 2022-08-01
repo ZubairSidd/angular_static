@@ -72,6 +72,7 @@ export class ClaimFormComponent implements OnInit {
       });
   }
   onSubmit(data: any) {
+    // updating purchase details staus to show claim requested
     this.purchaseDetails.status = 1;
 
     this.claimDetails.user_id = Number(this.userDetails.user_id);
