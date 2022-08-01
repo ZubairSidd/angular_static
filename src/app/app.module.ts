@@ -25,7 +25,11 @@ import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
-
+import { PlanComponent } from './admin/plan/plan.component';
+import { NewComponent } from './admin/plan/new/new.component';
+import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
+import { EditUserComponent } from './profile/edit-user/edit-user.component';
+import { EditDetailComponent } from './profile/edit-detail/edit-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +53,11 @@ import { TravelPlanComponent } from './travel-plan/travel-plan.component';
     ClaimFormComponent,
     ForgetPasswordComponent,
     TravelPlanComponent,
+    PlanComponent,
+    NewComponent,
+    TravelCheckoutComponent,
+    EditUserComponent,
+    EditDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -1,54 +1,7 @@
-<!-- ****************************************************** -->
 <div
   class="services-area pt-120 pb-60"
   data-background="assets/img/gallery/section_bg02.jpg"
 >
-  <ng-container *ngIf="isVehicle">
-    <h3 class="container text-center">Previously Registered Vehicles</h3>
-    <section class="h-100 gradient-form mt-30" *ngFor="let v of vehicleDetails">
-      <div class="container py-2 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-              <div class="row g-0">
-                <div class="col-lg-12">
-                  <div
-                    class="card radius-10 border-start border-0 border-3 border-danger"
-                  >
-                    <div class="card-body">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <span class="mb-0 text-secondary"
-                            ><b>Manufacturer:</b> {{ v.manufacturer }}</span
-                          ><br />
-                          <span class="mb-0 text-secondary"
-                            ><b>Model:</b> {{ v.model }}</span
-                          ><br />
-                          <span class="mb-0 text-secondary"
-                            ><b>Reg No:</b> {{ v.reg_number }}</span
-                          >
-                        </div>
-                        <div class="ms-auto">
-                          <a
-                            (click)="availableVehicle(v.id)"
-                            class="btn btn-outline-dark hero-btn"
-                            data-animation="fadeInLeft"
-                            data-delay=".8s"
-                            >INSURE NOW</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </ng-container>
-  <h3 class="container text-center my-3">New Registration</h3>
   <section class="h-100 gradient-form">
     <div class="container py-2 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -63,54 +16,13 @@
                       style="width: 85px"
                       alt="logo"
                     />
-                    <h4 class="mt-1 mb-5 pb-1">Enter Vehicle Details</h4>
+                    <h4 class="mt-1 mb-5 pb-1">Update Vehicle Details</h4>
                   </div>
 
-                  <form #detailsForm="ngForm" (submit)="onSubmit()">
+                  <form #editDetails="ngForm" (submit)="onSubmit()">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="type"
-                          >Vehicle Type
-                          <strong class="text-danger">*</strong>
-                        </label>
-                        <div class="form-check">
-                          <input
-                            type="radio"
-                            name="type"
-                            #type="ngModel"
-                            id="Car"
-                            class="form-check-input"
-                            value="Car"
-                            [(ngModel)]="detail.type"
-                            required
-                          />
-                          <label for="Car" class="form-check-label">Car</label>
-                        </div>
-                        <div class="form-check">
-                          <input
-                            type="radio"
-                            name="type"
-                            class="form-check-input"
-                            #type="ngModel"
-                            id="Car"
-                            value="Bike"
-                            [(ngModel)]="detail.type"
-                            required
-                          />
-                          <label for="Bike" class="form-check-label"
-                            >Bike</label
-                          >
-                        </div>
-                        <div
-                          *ngIf="type.touched && type.invalid"
-                          class="alert alert-danger py-1"
-                        >
-                          <p *ngIf="type.hasError('required')">
-                            Vehicle type is required
-                          </p>
-                        </div>
-                      </div>
+                      <div class="form-outline flex-fill mb-0"></div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -180,9 +92,10 @@
                           type="date"
                           id="purchase_date"
                           #purchase_date="ngModel"
-                          [(ngModel)]="detail.purchase_date"
+                          [ngModel]="detail.purchase_date | date: 'yyyy-MM-dd'"
                           class="form-control"
                           name="purchase_date"
+                          (ngModelChange)="detail.purchase_date = $event"
                           required
                         />
                         <div
@@ -205,7 +118,7 @@
                           ></label
                         >
                         <input
-                          type="string"
+                          type="text"
                           id="reg_number"
                           #reg_number="ngModel"
                           [(ngModel)]="detail.reg_number"
@@ -344,7 +257,7 @@
                       <button
                         type="submit"
                         class="login-btn text-white"
-                        [disabled]="detailsForm.invalid"
+                        [disabled]="editDetails.invalid"
                       >
                         Proceed
                       </button>

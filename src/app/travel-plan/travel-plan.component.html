@@ -14,16 +14,19 @@
       <h2 class="text-center m-4">Explore Travel Insurance Plans</h2>
       <div class="col-12">
         <div class="row">
-          <div class="col-lg-6 col-md-12 mb-4">
+          <div class="col-lg-6 col-md-12 mb-4" *ngFor="let plan of allPlans">
             <div class="card card1 h-100">
               <div class="card-body">
-                <h5 class="card-title">Standard plan</h5>
+                <h5 class="card-title">
+                  {{ plan_detail[plan.plan_details - 1] }}
+                </h5>
                 <small class="text-muted">Individual</small>
                 <br /><br />
-                <span class="h2">&#8377;299</span>/year <br /><br />
+                <span class="h2">{{ plan.amount | currency: "INR" }}</span
+                >/year <br /><br />
                 <div class="d-grid my-3">
                   <a
-                    href="/checkout"
+                    routerLink="/travel-plan/{{ plan.plan_id }}/checkout"
                     class="btn btn-outline-dark hero-btn"
                     data-animation="fadeInLeft"
                     data-delay=".8s"
@@ -31,105 +34,58 @@
                   >
                 </div>
                 <ul>
-                  <li>
-                    <i class="fa fa-check"></i> Covers Medical Insurance
-                  </li>
-                  <li>
-                    <i class="fa fa-times" aria-hidden="true"></i> 
-                    Loss of Passport or checked-in baggage
-                  </li>
-                  <li><i class="fa fa-times"></i> Trip cancellation & Delay</li>
-                  <li><i class="fa fa-check"></i> Compassionate visit</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 mb-4">
-            <div class="card card1 h-100">
-              <div class="card-body">
-                <h5 class="card-title">Silver Plan</h5>
-                <small class="text-muted">Individual</small>
-                <br /><br />
-                <span class="h2">&#8377;999</span>/year <br /><br />
-                <div class="d-grid my-3">
-                  <a
-                    href="/checkout"
-                    class="btn btn-outline-dark hero-btn"
-                    data-animation="fadeInLeft"
-                    data-delay=".8s"
-                    >BUY NOW</a
-                  >
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa fa-check"></i> Covers Medical Insurance
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i> 
-                    Loss of Passport or checked-in baggage
-                  </li>
-                  <li><i class="fa fa-times"></i> Trip cancellation & Delay</li>
-                  <li><i class="fa fa-check"></i> Compassionate visit</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 mb-4">
-            <div class="card card1 h-100">
-              <div class="card-body">
-                <h5 class="card-title">Gold plan</h5>
-                <small class="text-muted">Individual</small>
-                <br /><br />
-                <span class="h2">&#8377;1999</span>/year <br /><br />
-                <div class="d-grid my-3">
-                  <a
-                    href="/checkout"
-                    class="btn btn-outline-dark hero-btn"
-                    data-animation="fadeInLeft"
-                    data-delay=".8s"
-                    >BUY NOW</a
-                  >
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa fa-check"></i> Covers Medical Insurance
-                  </li>
-                  <li>
-                    <i class="fa fa-check" aria-hidden="true"></i> 
-                    Loss of Passport or checked-in baggage
-                  </li>
-                  <li><i class="fa fa-check"></i> Trip cancellation & Delay</li>
-                  <li><i class="fa fa-check"></i> Compassionate visit</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 mb-4">
-            <div class="card card1 h-100">
-              <div class="card-body">
-                <h5 class="card-title">Platinum Plan</h5>
-                <small class="text-muted">Family</small>
-                <br /><br />
-                <span class="h2">&#8377;3499</span>/year <br /><br />
-                <div class="d-grid my-3">
-                  <a
-                    href="/checkout"
-                    class="btn btn-outline-dark hero-btn"
-                    data-animation="fadeInLeft"
-                    data-delay=".8s"
-                    >BUY NOW</a
-                  >
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa fa-check"></i> Covers Medical Insurance
-                  </li>
-                  <li>
-                    <i class="fa fa-fa-check" aria-hidden="true"></i> 
-                    Loss of Passport or checked-in baggage
-                  </li>
-                  <li><i class="fa fa-fa-check"></i> Trip cancellation & Delay</li>
-                  <li><i class="fa fa-fa-check"></i> Compassionate visit</li>
+                  <ng-container *ngIf="plan.plan_details == 1">
+                    <li>
+                      <i class="fa fa-check"></i> Covers Medical Insurance
+                    </li>
+                    <li>
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                      Loss of Passport or checked-in baggage
+                    </li>
+                    <li>
+                      <i class="fa fa-times"></i> Trip cancellation & Delay
+                    </li>
+                    <li><i class="fa fa-check"></i> Compassionate visit</li>
+                  </ng-container>
+                  <ng-container *ngIf="plan.plan_details == 2">
+                    <li>
+                      <i class="fa fa-check"></i> Covers Medical Insurance
+                    </li>
+                    <li>
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      Loss of Passport or checked-in baggage
+                    </li>
+                    <li>
+                      <i class="fa fa-times"></i> Trip cancellation & Delay
+                    </li>
+                    <li><i class="fa fa-check"></i> Compassionate visit</li>
+                  </ng-container>
+                  <ng-container *ngIf="plan.plan_details == 3">
+                    <li>
+                      <i class="fa fa-check"></i> Covers Medical Insurance
+                    </li>
+                    <li>
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      Loss of Passport or checked-in baggage
+                    </li>
+                    <li>
+                      <i class="fa fa-check"></i> Trip cancellation & Delay
+                    </li>
+                    <li><i class="fa fa-check"></i> Compassionate visit</li>
+                  </ng-container>
+                  <ng-container *ngIf="plan.plan_details == 4">
+                    <li>
+                      <i class="fa fa-check"></i> Covers Medical Insurance
+                    </li>
+                    <li>
+                      <i class="fa fa-times" aria-hidden="true"></i>
+                      Loss of Passport or checked-in baggage
+                    </li>
+                    <li>
+                      <i class="fa fa-times"></i> Trip cancellation & Delay
+                    </li>
+                    <li><i class="fa fa-times"></i> Compassionate visit</li>
+                  </ng-container>
                 </ul>
               </div>
             </div>

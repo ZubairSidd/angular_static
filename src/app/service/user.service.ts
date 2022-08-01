@@ -25,4 +25,8 @@ export class UserService {
   forgetPassword(data: ForgotPassword) {
     return this.http.post(`${this.url}/ForgotPassword`, data);
   }
+  // update user details
+  updateUser(user_id: number, user: userViewModel) {
+    return this.http.put(`${this.url}/update/${user_id}`, user);
+  }
 }

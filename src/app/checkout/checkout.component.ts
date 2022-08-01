@@ -15,6 +15,7 @@ import { PurchaseService } from '../service/purchase/purchase.service';
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
+  popup: boolean = false;
   userDetails: any;
   planDetails: Plan;
   vehicleDetails: Detail;
@@ -92,7 +93,6 @@ export class CheckoutComponent implements OnInit {
 
       // add payment to database
       this.paymentService.createPayment(this.payment).subscribe((data) => {
-        console.log(`Payment created: ${data}`);
         this.router.navigate(['/profile/user']);
       });
     });
