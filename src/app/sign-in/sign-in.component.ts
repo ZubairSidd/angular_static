@@ -10,6 +10,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
+  errorMessage: string;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -19,10 +20,15 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(data: any) {
-    this.userService.registerUser(data).subscribe((res) => {
-      console.log(res);
-      this.router.navigate(['/login']);
-    });
+    this.userService.registerUser(data).subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/login']);
+      },
+      (error: any) => {
+        this.errorMessage = error.error;
+      }
+    );
   }
   isLogin: boolean = this.auth.checkLogin();
 }

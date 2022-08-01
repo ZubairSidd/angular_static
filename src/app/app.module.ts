@@ -22,6 +22,7 @@ import { PaymentComponent } from './admin/payment/payment.component';
 import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ClaimFormComponent } from './claim-form/claim-form.component';
     PaymentComponent,
     PolicyComponent,
     UsersComponent,
-    ClaimFormComponent
+    ClaimFormComponent,
+    ForgetPasswordComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
