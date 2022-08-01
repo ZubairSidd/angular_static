@@ -9,6 +9,7 @@ import { BuyPageComponent } from './buy-page/buy-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { RenewComponent } from './checkout/renew/renew.component';
+import { AdminGuard } from './guard/admin.guard';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
+<<<<<<< HEAD
   { path:'admin/claim',component:ClaimComponent},
   { path:'admin/payment',component:PaymentComponent},
   { path:'admin/policy',component:PolicyComponent},
@@ -49,6 +51,23 @@ const routes: Routes = [
   { path:'claim-form',component:ClaimFormComponent},
   { path:'travel-plan',component:TravelPlanComponent}
 
+=======
+
+  { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
+  {
+    path: 'admin/payment',
+    component: PaymentComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/policy',
+    component: PolicyComponent,
+    canActivate: [AdminGuard],
+  },
+ 
+  { path:'claim-form',component:ClaimFormComponent}
+  
+>>>>>>> 4681c5c9b6a67b92f895dbd71c53cf37630e7ca7
 ];
 
 @NgModule({

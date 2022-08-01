@@ -9,7 +9,7 @@
   <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Sidebar Start -->
     <div class="sidebar">
-      <nav class="navbar bg-light navbar-light" style="padding-right: 10px;">
+      <nav class="navbar bg-light navbar-light" style="padding-right: 10px">
         <div class="navbar-nav w-100">
           <a href="/admin/claim" class="nav-item nav-link"
             ><i class="fa fa-id-card me-2"></i>Claim Requests</a
@@ -18,7 +18,7 @@
             ><i class="fa fa-th me-2"></i>Payments</a
           >
           <a href="/admin/policy" class="nav-item nav-link"
-            ><i class="fa fa-keyboard me-2"></i>Policy Details</a
+            ><i class="fa fa-keyboard me-2"></i>Purchased Details</a
           >
           <a href="/admin/users" class="nav-item nav-link"
             ><i class="fa fa-table me-2"></i>User Details</a
@@ -27,39 +27,55 @@
       </nav>
     </div>
     <!-- Sidebar End -->
-  
+
     <!-- Content Start -->
     <div class="content">
-      
-  
       <!-- Claim Status Start -->
-        <div class="bg-light text-center rounded p-4">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Policy Purchased Details</h6>
-          </div>
-          <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th class="th-sm">Policy ID  <!--Policy ID == Plan ID-->
-                </th>
-                <th class="th-sm">Policy Number
-                </th>
-                <th class="th-sm">User ID
-                </th>
-                <th class="th-sm">Car/Bike
-                </th>
-                <th class="th-sm">Policy duration
-                </th>
-                <th class="th-sm">Amount paid
-                </th>
-              </tr>
-            </thead>
-          </table>
+      <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h6 class="mb-0">Policy Purchased Details</h6>
         </div>
+        <table
+          id="dtBasicExample"
+          class="table table-striped table-bordered table-sm"
+          cellspacing="0"
+          width="100%"
+        >
+          <thead>
+            <tr>
+              <th class="th-sm">Purchase ID</th>
+              <th class="th-sm">User Details ID</th>
+              <th class="th-sm">
+                Policy ID
+                <!--Policy ID == Plan ID-->
+              </th>
+              <th class="th-sm">Policy Number</th>
+              <th class="th-sm">Type</th>
+              <th class="th-sm">Amount paid</th>
+              <th class="th-sm">End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let p of allPurchases">
+              <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.detail_id }}</td>
+                <ng-container *ngFor="let plan of allPlans">
+                  <ng-container *ngIf="plan.plan_id == p.plan_id">
+                    <td>{{ plan.plan_id }}</td>
+                    <td>{{ plan.policy_number }}</td>
+                    <td>{{ plan.type }}</td>
+                    <td>{{ plan.amount | currency: "INR" }}</td>
+                  </ng-container>
+                </ng-container>
+                <td>{{ p.end_date | date }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
       <!-- End -->
     </div>
     <!-- Content End -->
-  
   </div>
 </div>
-

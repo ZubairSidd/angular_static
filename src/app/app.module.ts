@@ -24,8 +24,6 @@ import { UsersComponent } from './admin/users/users.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,12 +47,7 @@ import { TravelPlanComponent } from './travel-plan/travel-plan.component';
     ClaimFormComponent,
     TravelPlanComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
