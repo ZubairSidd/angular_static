@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+    // if the user is not logged in, then login
     this._service.login(this.loginDetails).subscribe(
       (data) => {
         localStorage.setItem('token', JSON.stringify(data));
@@ -27,30 +28,12 @@ export class LoginComponent implements OnInit {
         });
       },
       () => {
+        // if the email or password is incorrect, then show error message
         this.errorMessage = 'Email id or Password is incorrect';
       }
     );
-
-    // this._service.login(this.loginDetails).subscribe(
-    //   (data) => {
-    //     localStorage.setItem('token', JSON.stringify(data));
-    //     this.router.navigate(['/']).then(() => {
-    //       window.location.reload();
-    //     });
-    //   },
-    // () => {
-    //   this.errorMessage = 'Email id or Password is incorrect';
-    // }
-    // );
-
-    // window.localStorage.setItem(
-    //   'userDetails',
-    //   JSON.stringify(this.loginDetails)
-    // );
-    // this.router.navigate(['']).then(() => {
-    //   window.location.reload();
-    // });
   }
+  // check if the user is logged in
   checkLogin() {
     if (localStorage.getItem('token')) {
       return true;

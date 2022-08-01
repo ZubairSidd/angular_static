@@ -12,14 +12,14 @@ import { PlanService } from '../service/plan.service';
 })
 export class PlanPageComponent implements OnInit {
   detail: Detail;
-  id: any;
+  detail_id: any;
   allPlans: any = [
     'Comprehensive plan',
     'Standard plan',
     'Premium plan',
     'Third party plan',
   ];
-  plansByType: any;
+  plansByType: Plan[];
   constructor(
     private detailService: DetailService,
     private planService: PlanService,
@@ -27,10 +27,15 @@ export class PlanPageComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this.id = this.aRouter.snapshot.paramMap.get('id');
-    await this.detailService.getDetailById(this.id).subscribe((res) => {
+    // get detail_id from url
+    this.detail_id = this.aRouter.snapshot.paramMap.get('detail_id');
+
+    // get detail by id
+    await this.detailService.getDetailById(this.detail_id).subscribe((res) => {
       this.detail = res;
     });
+
+    // get all plans by type
     await this.planService.getPlans().subscribe((res) => {
       this.plansByType = res.filter((plan) => plan.type == this.detail.type);
     });

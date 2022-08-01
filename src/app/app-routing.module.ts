@@ -8,6 +8,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { BuyPageComponent } from './buy-page/buy-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
+import { RenewComponent } from './checkout/renew/renew.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'buy-page', component: BuyPageComponent, canActivate: [AuthGuard] },
   {
-    path: 'buy-page/:id/plan-page',
+    path: 'buy-page/:detail_id/plan-page',
     component: PlanPageComponent,
     canActivate: [AuthGuard],
   },
@@ -33,13 +34,20 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'profile/user',component:UserComponent},
+
+  {
+    path: 'buy-page/:detail_id/plan-page/:plan_id/renew/:purchase_id',
+    component: RenewComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
   { path:'admin/claim',component:ClaimComponent},
   { path:'admin/payment',component:PaymentComponent},
   { path:'admin/policy',component:PolicyComponent},
   { path:'admin/users',component:UsersComponent},
   { path:'claim-form',component:ClaimFormComponent}
   
+
 
 ];
 
