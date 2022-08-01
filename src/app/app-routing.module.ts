@@ -17,7 +17,11 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
 import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+
+import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +48,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
-
+  { path:'travel-plan',component:TravelPlanComponent},
   { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
   {
     path: 'admin/payment',
@@ -56,6 +60,7 @@ const routes: Routes = [
     component: PolicyComponent,
     canActivate: [AdminGuard],
   },
+
   {
     path: 'admin/users',
     component: UsersComponent,
@@ -67,6 +72,7 @@ const routes: Routes = [
     component: ClaimFormComponent,
     canActivate: [AuthGuard],
   },
+
 ];
 
 @NgModule({
