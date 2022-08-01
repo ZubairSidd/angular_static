@@ -142,7 +142,13 @@
                               <td>Already Claimed</td>
                             </ng-container>
                             <ng-container *ngIf="purchase.status == 0">
-                              <td><button class="btn">Claim</button></td>
+                              <td>
+                                <a
+                                  class="btn"
+                                  routerLink="/claim/{{ purchase.id }}"
+                                  >Claim</a
+                                >
+                              </td>
                             </ng-container>
                           </ng-container>
                         </tr>

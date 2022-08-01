@@ -14,6 +14,10 @@ export class PaymentService {
   getPayments(): Observable<Payment[]> {
     return this.http.get<Payment[]>(`${this.url}/getallpayments`);
   }
+  // get payment details by id
+  getPaymentById(payment_id: number): Observable<Payment> {
+    return this.http.get<Payment>(`${this.url}/GetPayment/${payment_id}`);
+  }
   // create payment
   createPayment(payment: Payment) {
     return this.http.post(`${this.url}/register`, payment);

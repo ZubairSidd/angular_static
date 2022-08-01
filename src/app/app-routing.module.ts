@@ -43,9 +43,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
-
-
-  { path:'admin/users',component:UsersComponent},
   { path:'travel-plan',component:TravelPlanComponent},
   { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
   {
@@ -59,7 +56,18 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
 
-  { path:'claim-form',component:ClaimFormComponent}
+  {
+    path: 'admin/users',
+    component: UsersComponent,
+    canActivate: [AdminGuard],
+  },
+
+  {
+    path: 'claim/:purchase_id',
+    component: ClaimFormComponent,
+    canActivate: [AuthGuard],
+  },
+
 ];
 
 @NgModule({
