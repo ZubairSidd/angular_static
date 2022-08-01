@@ -25,6 +25,9 @@ import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+import { PlanComponent } from './admin/plan/plan.component';
+import { NewComponent } from './admin/plan/new/new.component';
+import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { TravelPlanComponent } from './travel-plan/travel-plan.component';
     ClaimFormComponent,
     ForgetPasswordComponent,
     TravelPlanComponent,
+    PlanComponent,
+    NewComponent,
+    TravelCheckoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

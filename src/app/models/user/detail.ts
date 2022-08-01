@@ -4,7 +4,7 @@ export interface Detail {
   manufacturer: string;
   model: string;
   purchase_date: Date;
-  reg_number?: number;
+  reg_number?: string;
   engine_number?: number;
   driving_license: string;
   chasis_number?: string;

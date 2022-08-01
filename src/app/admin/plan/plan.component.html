@@ -36,7 +36,7 @@
       <!-- Claim Status Start -->
       <div class="bg-light text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
-          <h6 class="mb-0">User Details</h6>
+          <h6 class="mb-0">Plan Details</h6>
         </div>
         <table
           id="dtBasicExample"
@@ -46,18 +46,20 @@
         >
           <thead>
             <tr>
-              <th class="th-sm">User ID</th>
-              <th class="th-sm">Name</th>
-              <th class="th-sm">Email</th>
-              <th class="th-sm">DOB</th>
+              <th class="th-sm">Policy ID</th>
+              <th class="th-sm">Policy Number</th>
+              <th class="th-sm">Type</th>
+              <th class="th-sm">Plan Details</th>
+              <th class="th-sm">Amount</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let u of allUsers">
-              <td>{{ u.user_id }}</td>
-              <td>{{ u.name }}</td>
-              <td>{{ u.email }}</td>
-              <td>{{ u.dob | date }}</td>
+            <tr *ngFor="let p of allPlans">
+              <td>{{ p.plan_id }}</td>
+              <td>{{ p.policy_number }}</td>
+              <td>{{ p.type }}</td>
+              <td>{{ p.plan_details }}</td>
+              <td>{{ p.amount | currency: "INR" }}</td>
             </tr>
           </tbody>
         </table>

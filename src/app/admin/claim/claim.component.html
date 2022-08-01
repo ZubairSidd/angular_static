@@ -23,6 +23,9 @@
           <a href="/admin/users" class="nav-item nav-link"
             ><i class="fa fa-table me-2"></i>User Details</a
           >
+          <a href="/admin/plan" class="nav-item nav-link"
+            ><i class="fa fa-file me-2"></i>Plan Details</a
+          >
         </div>
       </nav>
     </div>
@@ -63,7 +66,7 @@
               </ng-container>
               <td>{{ c.pay_id }}</td>
               <td>{{ c.reason }}</td>
-              <td>{{ c.amount }}</td>
+              <td>{{ c.amount | currency: "INR" }}</td>
               <ng-container *ngIf="c.status == 1">
                 <td>
                   <a class="btn" (click)="onClick(c.claim_no, c.pay_id)"

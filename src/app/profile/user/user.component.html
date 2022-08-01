@@ -82,7 +82,9 @@
                       <td>{{ v.manufacturer }} {{ v.model }}</td>
                       <td>{{ v.reg_number }}</td>
                       <td>{{ v.type }}</td>
-                      <td><button class="btn">Edit</button></td>
+                      <td>
+                        <button class="btn btn-outline-dark">Edit</button>
+                      </td>
                     </tr>
                   </ng-container>
                 </tbody>
@@ -144,7 +146,7 @@
                             <ng-container *ngIf="purchase.status == 0">
                               <td>
                                 <a
-                                  class="btn"
+                                  class="btn btn-outline-dark"
                                   routerLink="/claim/{{ purchase.id }}"
                                   >Claim</a
                                 >
@@ -202,7 +204,7 @@
                             <td>{{ purchase.end_date | date }}</td>
                             <td>
                               <a
-                                class="btn"
+                                class="btn btn-outline-dark"
                                 routerLink="/buy-page/{{ v.id }}/plan-page/{{
                                   purchase.plan_id
                                 }}/renew/{{ purchase.id }}"
@@ -211,6 +213,80 @@
                               >
                             </td>
                           </tr>
+                        </ng-container>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div
+                class="d-flex align-items-center justify-content-between mb-4"
+              >
+                <h6 class="mb-0">Travel Policies</h6>
+              </div>
+              <table
+                id="dtBasicExample"
+                class="table table-striped table-bordered table-sm"
+                cellspacing="0"
+                width="100%"
+              >
+                <thead>
+                  <tr>
+                    <th class="th-sm">Policy ID</th>
+                    <th class="th-sm">Policy Name</th>
+                    <th class="th-sm">Amount</th>
+                    <th class="th-sm">Policy End Date</th>
+                    <th class="th-sm">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let purchase of purchaseDetails">
+                    <ng-container *ngFor="let plan of planDetails">
+                      <ng-container *ngIf="plan.type == 'Travel'">
+                        <ng-container *ngIf="purchase.plan_id == plan.plan_id">
+                          <ng-container *ngFor="let pay of paymentDetails">
+                            <ng-container
+                              *ngIf="
+                                pay.user_id == userDetails.user_id &&
+                                pay.purchase_id == purchase.id
+                              "
+                            >
+                              <tr>
+                                <td>{{ plan.plan_id }}</td>
+                                <td>{{ plan_detail[plan.plan_details] }}</td>
+                                <td>{{ plan.amount | currency: "INR" }}</td>
+                                <td>{{ purchase.end_date | date }}</td>
+                                <ng-container
+                                  *ngIf="isExpired(purchase.end_date)"
+                                >
+                                  <td>Policy Expired</td>
+                                </ng-container>
+                                <ng-container
+                                  *ngIf="!isExpired(purchase.end_date)"
+                                >
+                                  <ng-container *ngIf="purchase.status == 1">
+                                    <td>Claim Requested</td>
+                                  </ng-container>
+                                  <ng-container *ngIf="purchase.status == 2">
+                                    <td>Already Claimed</td>
+                                  </ng-container>
+                                  <ng-container *ngIf="purchase.status == 0">
+                                    <td>
+                                      <a
+                                        class="btn btn-outline-dark"
+                                        routerLink="/claim/{{ purchase.id }}"
+                                        >Claim</a
+                                      >
+                                    </td>
+                                  </ng-container>
+                                </ng-container>
+                              </tr>
+                            </ng-container>
+                          </ng-container>
                         </ng-container>
                       </ng-container>
                     </ng-container>

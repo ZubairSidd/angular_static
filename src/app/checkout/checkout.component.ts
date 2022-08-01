@@ -92,7 +92,6 @@ export class CheckoutComponent implements OnInit {
 
       // add payment to database
       this.paymentService.createPayment(this.payment).subscribe((data) => {
-        console.log(`Payment created: ${data}`);
         this.router.navigate(['/profile/user']);
       });
     });
