@@ -24,6 +24,8 @@ import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 import { PlanComponent } from './admin/plan/plan.component';
 import { NewComponent } from './admin/plan/new/new.component';
 import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
+import { EditUserComponent } from './profile/edit-user/edit-user.component';
+import { EditDetailComponent } from './profile/edit-detail/edit-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,6 +52,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile/user/edit',
+    component: EditUserComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile/user/detail/:detail_id/edit',
+    component: EditDetailComponent,
+    canActivate: [AuthGuard],
+  },
 
   { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
   {

@@ -22,4 +22,8 @@ export class DetailService {
   registerDetail(detail: Detail): Observable<Detail> {
     return this.http.post<Detail>(`${this.url}/register`, detail);
   }
+  // update vehicle detail
+  updateDetail(detail_id: number, detail: Detail): Observable<Detail> {
+    return this.http.put<Detail>(`${this.url}/update/${detail_id}`, detail);
+  }
 }
