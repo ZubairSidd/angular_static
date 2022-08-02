@@ -18,6 +18,8 @@ import { PremiumComponent } from './premium/premium.component';
 import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+import { ContactComponent } from './contact/contact.component';
+import { FAQComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -67,6 +69,10 @@ const routes: Routes = [
     component: ClaimFormComponent,
     canActivate: [AuthGuard],
   },
+
+  { path:'contact',component:ContactComponent},
+  { path:'faq',component:FAQComponent}
+
 
 ];
 

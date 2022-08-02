@@ -1,20 +1,20 @@
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #fccb90;
-  
+
     /* Chrome 10-25, Safari 5.1-6 */
     /* background: -webkit-linear-gradient(to right, #e7f6f2, #a5c9ca, #395b64, #2c3333); */
     /* background: -webkit-linear-gradient(to right, #a5c9ca, #395b64); */
     /* background: -webkit-linear-gradient(to right, #e7f6f2, #a5c9ca, #395b64, #2c3333); */
     background: -webkit-linear-gradient(to right, #395b64, #2c3333);
-  
+
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background: linear-gradient(to right, #a5c9ca, #395b64); */
     background: linear-gradient(to right, #395b64, #2c3333);
     /* background: linear-gradient(to right, #a5c9ca, #2c3333); */
     /* background: linear-gradient(to right, #e7f6f2, #a5c9ca); */
     }
-  
+
     @media (min-width: 768px) {
     /* .gradient-form {
     height: 100vh !important;
@@ -26,7 +26,7 @@
     border-bottom-right-radius: .3rem;
     }
     }
-  
+
     .login-btn{
         border: 5px solid #fff;
         width: 100%;
@@ -46,7 +46,7 @@
     form{
         font-family: "Rubik";
     }
-  
+
     .d-flex {
       display: flex !important;
       justify-content: space-evenly;
@@ -61,11 +61,11 @@
       display: none;
     }
   }
-  
+
   .service-block{
     padding-right: 30px;
   }
-  
+
   .search-from >a{
       border: 5px solid #fff;
       width: 100%;
@@ -82,7 +82,7 @@
       font-size: 14px;
       text-decoration: none;
   }
-  
+
   .border-danger {
     border-left: 5px solid  #395B64 !important;
   }

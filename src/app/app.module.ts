@@ -23,6 +23,7 @@ import { PolicyComponent } from './admin/policy/policy.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+import { FAQComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { TravelPlanComponent } from './travel-plan/travel-plan.component';
     PolicyComponent,
     UsersComponent,
     ClaimFormComponent,
-    TravelPlanComponent
+    TravelPlanComponent,
+    FAQComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
