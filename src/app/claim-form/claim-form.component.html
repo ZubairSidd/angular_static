@@ -1,3 +1,4 @@
+<!-- User can select reason to claim a policy vehicle insurance or travel insuracne -->
 <div
   class="services-area pt-120 pb-60"
   data-background="assets/img/gallery/section_bg02.jpg"
@@ -17,13 +18,13 @@
                       style="width: 85px"
                       alt="logo"
                     />
-                    <!-- <h4 class="mt-1 mb-5 pb-1">Enter Vehicle Details</h4> -->
                   </div>
 
                   <form
                     #claimForm="ngForm"
                     (submit)="onSubmit(claimForm.value)"
                   >
+                    <!-- This section is only for vehicle insurance claim -->
                     <div
                       class="d-flex flex-row align-items-center mb-4"
                       *ngIf="planDetails.type != 'Travel'"
@@ -100,6 +101,7 @@
                       </button>
                     </div>
 
+                    <!-- This section is only for Travel insurance claim -->
                     <div
                       class="d-flex flex-row align-items-center mb-4"
                       *ngIf="planDetails.type == 'Travel'"

@@ -21,21 +21,24 @@ export class ForgetPasswordComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(data: any) {
+    // storing login details in loginDetails object which is entered in the form
     this.loginDetails.email = data.email;
     this.loginDetails.pass = data.password;
 
+    // calling the forgot password function from the service
     this.userService.forgetPassword(this.loginDetails).subscribe(
       (data) => {
         this.router.navigate(['/login']).then(() => {
           window.location.reload();
         });
       },
+      // if any error occurs, then show error message
       (error: any) => {
         this.errorMessage = error.error;
       }
     );
   }
-
+  // check if user is already logged in then we don't need to show the forgot password page
   checkLogin() {
     if (localStorage.getItem('token')) {
       return true;

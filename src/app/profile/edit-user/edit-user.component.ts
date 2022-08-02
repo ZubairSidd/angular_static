@@ -18,7 +18,9 @@ export class EditUserComponent implements OnInit {
   isLogin: boolean = this.auth.checkLogin();
 
   ngOnInit(): void {
+    // get user details from local storage
     this.userDetails = localStorage.getItem('token');
+    // convert the user details to json
     this.userDetails = JSON.parse(this.userDetails);
   }
 

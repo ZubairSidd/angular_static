@@ -1,3 +1,5 @@
+// This is the model for the Detail object for Detail Table in the database
+// This is used for vehicle details
 export interface Detail {
   id?: number;
   user_id?: number;
