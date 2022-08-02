@@ -11,6 +11,7 @@ import { AuthService } from '../service/auth.service';
 export class NavbarComponent implements OnInit {
   userDetails: any;
   constructor(private router: Router, private auth: AuthService) {}
+  // check if user logged in is admin
   isAdmin: boolean = this.auth.isAdmin();
 
   ngOnInit(): void {
@@ -38,6 +39,7 @@ export class NavbarComponent implements OnInit {
       window.location.reload();
     });
   }
+  // logout function for admin and clear the localStorage
   logoutAdmin() {
     window.localStorage.clear();
     this.router.navigate(['/']).then(() => {

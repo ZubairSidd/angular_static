@@ -1,3 +1,6 @@
+<!-- This component is for claim page for admin -->
+<!-- Admin can see all the claim request that has been made -->
+<!-- Admin can Approve a claim from here -->
 <div
   class="services-area pt-120 pb-60"
   data-background="assets/img/gallery/section_bg02.jpg"
@@ -22,6 +25,9 @@
           >
           <a href="/admin/users" class="nav-item nav-link"
             ><i class="fa fa-table me-2"></i>User Details</a
+          >
+          <a href="/admin/plan" class="nav-item nav-link"
+            ><i class="fa fa-file me-2"></i>Plan Details</a
           >
         </div>
       </nav>
@@ -63,11 +69,13 @@
               </ng-container>
               <td>{{ c.pay_id }}</td>
               <td>{{ c.reason }}</td>
-              <td>{{ c.amount }}</td>
+              <td>{{ c.amount | currency: "INR" }}</td>
               <ng-container *ngIf="c.status == 1">
                 <td>
-                  <a class="btn" (click)="onClick(c.claim_no, c.pay_id)"
-                    >Claim</a
+                  <a
+                    class="btn btn-outline-dark"
+                    (click)="onClick(c.claim_no, c.pay_id)"
+                    >Approve</a
                   >
                 </td>
               </ng-container>

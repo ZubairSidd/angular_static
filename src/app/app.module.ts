@@ -24,7 +24,14 @@ import { UsersComponent } from './admin/users/users.component';
 import { ClaimFormComponent } from './claim-form/claim-form.component';
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 import { FAQComponent } from './faq/faq.component';
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
+import { TravelPlanComponent } from './travel-plan/travel-plan.component';
+import { PlanComponent } from './admin/plan/plan.component';
+
+import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
+import { EditUserComponent } from './profile/edit-user/edit-user.component';
+import { EditDetailComponent } from './profile/edit-detail/edit-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +53,12 @@ import { FAQComponent } from './faq/faq.component';
     PolicyComponent,
     UsersComponent,
     ClaimFormComponent,
+    ForgetPasswordComponent,
     TravelPlanComponent,
+    PlanComponent,
+    TravelCheckoutComponent,
+    EditUserComponent,
+    EditDetailComponent,
     FAQComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],

@@ -1,0 +1,315 @@
+<!-- This is the user vehicle details edit component -->
+<!-- When user click on edit in vehicle details table -->
+<!-- This component will be shown and user can edit their vehicle details -->
+<div
+  class="services-area pt-120 pb-60"
+  data-background="assets/img/gallery/section_bg02.jpg"
+>
+  <section class="h-100 gradient-form">
+    <div class="container py-2 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body mx-md-4">
+                  <div class="text-center">
+                    <img
+                      src="assets/img/logo/Logo_bg.png"
+                      style="width: 85px"
+                      alt="logo"
+                    />
+                    <h4 class="mt-1 mb-5 pb-1">Update Vehicle Details</h4>
+                  </div>
+
+                  <form #editDetails="ngForm" (submit)="onSubmit()">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0"></div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="manufacturer"
+                          >Manufacturer<strong class="text-danger"
+                            >*</strong
+                          ></label
+                        >
+                        <input
+                          type="text"
+                          #manufacturer="ngModel"
+                          id="manufacturer"
+                          class="form-control"
+                          placeholder="Enter Manufacturer Name"
+                          name="manufacturer"
+                          [(ngModel)]="detail.manufacturer"
+                          required
+                        />
+                        <div
+                          *ngIf="manufacturer.touched && manufacturer.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="manufacturer.hasError('required')">
+                            Vehicle manufacturer is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="model"
+                          >Model<strong class="text-danger">*</strong>
+                        </label>
+                        <input
+                          type="email"
+                          id="model"
+                          #model="ngModel"
+                          class="form-control"
+                          placeholder="Enter Model Name"
+                          name="model"
+                          [(ngModel)]="detail.model"
+                          required
+                        />
+                        <div
+                          *ngIf="model.touched && model.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="model.hasError('required')">
+                            Vehicle model is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-birthday-cake fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="purchase_date"
+                          >Purchase Date
+                          <strong class="text-danger">*</strong>
+                        </label>
+                        <input
+                          type="date"
+                          id="purchase_date"
+                          #purchase_date="ngModel"
+                          [ngModel]="detail.purchase_date | date: 'yyyy-MM-dd'"
+                          class="form-control"
+                          name="purchase_date"
+                          (ngModelChange)="detail.purchase_date = $event"
+                          required
+                        />
+                        <div
+                          *ngIf="purchase_date.touched && purchase_date.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="purchase_date.hasError('required')">
+                            Vehicle purchase date is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="reg_number"
+                          >Registration Number<strong class="text-danger"
+                            >*</strong
+                          ></label
+                        >
+                        <input
+                          type="text"
+                          id="reg_number"
+                          #reg_number="ngModel"
+                          [(ngModel)]="detail.reg_number"
+                          class="form-control"
+                          placeholder="Enter Registration Number"
+                          name="reg_number"
+                          required
+                        />
+                        <div
+                          *ngIf="reg_number.touched && reg_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="reg_number.hasError('required')">
+                            Vehicle registration number is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="chasis_number"
+                          >Chasis Number<strong class="text-danger"
+                            >*</strong
+                          ></label
+                        >
+                        <input
+                          type="text"
+                          id="chasis_number"
+                          #chasis_number="ngModel"
+                          [(ngModel)]="detail.chasis_number"
+                          class="form-control"
+                          placeholder="Enter Chasis Number"
+                          name="chasis_number"
+                          required
+                        />
+                        <div
+                          *ngIf="chasis_number.touched && chasis_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="chasis_number.hasError('required')">
+                            Vehicle chasis number is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="engine_number"
+                          >Engine Number<strong class="text-danger"
+                            >*</strong
+                          ></label
+                        >
+                        <input
+                          type="number"
+                          id="engine_number"
+                          #engine_number="ngModel"
+                          [(ngModel)]="detail.engine_number"
+                          class="form-control"
+                          placeholder="Enter Engine Number"
+                          name="engine_number"
+                          required
+                        />
+                        <div
+                          *ngIf="engine_number.touched && engine_number.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="engine_number.hasError('required')">
+                            Vehicle engine number is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="driving_license"
+                          >Driving License Number<strong class="text-danger"
+                            >*</strong
+                          ></label
+                        >
+                        <input
+                          type="text"
+                          id="driving_license"
+                          #driving_license="ngModel"
+                          [(ngModel)]="detail.driving_license"
+                          class="form-control"
+                          placeholder="Enter Driving License Number"
+                          name="driving_license"
+                          required
+                        />
+                        <div
+                          *ngIf="
+                            driving_license.touched && driving_license.invalid
+                          "
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="driving_license.hasError('required')">
+                            driving license number is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="pincode"
+                          >Address<strong class="text-danger">*</strong></label
+                        >
+                        <input
+                          type="text"
+                          id="pincode"
+                          #address="ngModel"
+                          [(ngModel)]="detail.address"
+                          class="form-control"
+                          placeholder="Enter Adress"
+                          name="address"
+                          required
+                        />
+                        <div
+                          *ngIf="address.touched && address.invalid"
+                          class="alert alert-danger py-1"
+                        >
+                          <p *ngIf="address.hasError('required')">
+                            Address is required
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button
+                        type="submit"
+                        class="login-btn text-white"
+                        [disabled]="editDetails.invalid"
+                      >
+                        Proceed
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-6 sec-div align-items-center">
+                <div class="hero__img">
+                  <img
+                    class="bike-img"
+                    src="assets/img/hero/bike-landing.png"
+                    alt=""
+                  />
+                </div>
+                <div class="row" style="margin-top: 30px">
+                  <div class="col-md-12 text-sm-center service-block mt-30">
+                    <i class="fa fa-bolt" aria-hidden="true"></i>
+                    <h3>Instant Service</h3>
+                    <p>
+                      Never in all their history have men been able truly to
+                      conceive of the world as one: a single sphere, a globe,
+                      having the qualities of a globe.
+                    </p>
+                  </div>
+                  <div class="col-md-12 text-sm-center service-block">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <h3>Trustworthy</h3>
+                    <p>
+                      Never in all their history have men been able truly to
+                      conceive of the world as one: a single sphere, a globe,
+                      having the qualities of a globe.
+                    </p>
+                  </div>
+                  <div class="col-md-12 text-sm-center service-block">
+                    <i class="fa fa-leaf" aria-hidden="true"></i>
+                    <h3>Zero Hassle</h3>
+                    <p>
+                      Never in all their history have men been able truly to
+                      conceive of the world as one: a single sphere, a globe,
+                      having the qualities of a globe.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -22,12 +22,12 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    // if user is logged in, return true
+    // if user is not logged in, return false
     if (!this.authService.checkLogin()) {
       this.router.navigate(['/login']);
       return false;
     }
-
+    // if user is logged in, return true
     return true;
   }
 }

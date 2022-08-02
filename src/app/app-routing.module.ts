@@ -17,15 +17,24 @@ import { PlanPageComponent } from './plan-page/plan-page.component';
 import { PremiumComponent } from './premium/premium.component';
 import { UserComponent } from './profile/user/user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 import { ContactComponent } from './contact/contact.component';
 import { FAQComponent } from './faq/faq.component';
+import { PlanComponent } from './admin/plan/plan.component';
+
+import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
+import { EditUserComponent } from './profile/edit-user/edit-user.component';
+import { EditDetailComponent } from './profile/edit-detail/edit-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'premium', component: PremiumComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'login/forgot', component: ForgetPasswordComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'buy-page', component: BuyPageComponent, canActivate: [AuthGuard] },
   {
@@ -45,7 +54,17 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'profile/user', component: UserComponent, canActivate: [AuthGuard] },
-  { path:'travel-plan',component:TravelPlanComponent},
+  {
+    path: 'profile/user/edit',
+    component: EditUserComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile/user/detail/:detail_id/edit',
+    component: EditDetailComponent,
+    canActivate: [AuthGuard],
+  },
+
   { path: 'admin/claim', component: ClaimComponent, canActivate: [AdminGuard] },
   {
     path: 'admin/payment',
@@ -63,6 +82,11 @@ const routes: Routes = [
     component: UsersComponent,
     canActivate: [AdminGuard],
   },
+  {
+    path: 'admin/plan',
+    component: PlanComponent,
+    canActivate: [AdminGuard],
+  },
 
   {
     path: 'claim/:purchase_id',
@@ -74,6 +98,16 @@ const routes: Routes = [
   { path:'faq',component:FAQComponent}
 
 
+  {
+    path: 'travel-plan',
+    component: TravelPlanComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'travel-plan/:plan_id/checkout',
+    component: TravelCheckoutComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

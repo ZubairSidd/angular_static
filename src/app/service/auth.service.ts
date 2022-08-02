@@ -21,6 +21,7 @@ export class AuthService {
     }
     return false;
   }
+  // check if user is admin
   isAdmin() {
     if (localStorage.getItem('admin')) {
       return true;
