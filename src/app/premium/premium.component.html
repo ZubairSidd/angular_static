@@ -1,48 +1,61 @@
-<div class="services-area pt-120 pb-60" data-background="assets/img/gallery/section_bg02.jpg">
+<!-- This component is premium calculator page -->
+<!-- This will be shown when user click on get quote on homepage -->
+<div
+  class="services-area pt-120 pb-60"
+  data-background="assets/img/gallery/section_bg02.jpg"
+>
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-    <div class="container mt-50">
+  <div class="container mt-50">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-        <div class="col">
-            <div class="card radius-10 border-start border-0 border-3 border-danger">
-               <div class="card-body">
-                   <div class="d-flex align-items-center">
-                       <div>
-                           <h5>1 year</h5>
-                           <p class="mb-0 text-secondary">Standard Plan</p>
-                           <h5>&#8377; 84,245</h5>
-                       </div>
-                   </div>
-               </div>
+      <div class="col">
+        <div
+          class="card radius-10 border-start border-0 border-3 border-danger"
+        >
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h5>1 year</h5>
+                <p class="mb-0 text-secondary">Standard Plan</p>
+                <h5>{{ price | currency: "INR" }}</h5>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card radius-10 border-start border-0 border-3 border-danger">
-               <div class="card-body">
-                   <div class="d-flex align-items-center">
-                       <div>
-                           <h5>2 year</h5>
-                           <p class="mb-0 text-secondary">Budget Plan</p>
-                           <h5>&#8377; 84,245</h5>
-                       </div>
-                   </div>
-               </div>
-            </div>
-          </div>
-           <div class="col">
-            <div class="card radius-10 border-start border-0 border-3 border-danger">
-               <div class="card-body">
-                   <div class="d-flex align-items-center">
-                       <div>
-                           <h5>3 year</h5>
-                           <p class="mb-0 text">Mega Saver Plan</p>
-                           <h5>&#8377; 84,245</h5>
-                       </div>
-                   </div>
-               </div>
-            </div>
-          </div>
           </div>
         </div>
+      </div>
+      <div class="col">
+        <div
+          class="card radius-10 border-start border-0 border-3 border-danger"
+        >
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h5>2 year</h5>
+                <p class="mb-0 text-secondary">Budget Plan</p>
+                <h5>{{ price * 1.6 | currency: "INR" }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          class="card radius-10 border-start border-0 border-3 border-danger"
+        >
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h5>3 year</h5>
+                <p class="mb-0 text">Mega Saver Plan</p>
+                <h5>{{ price * 2 | currency: "INR" }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>

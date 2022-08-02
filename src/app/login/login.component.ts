@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    // if the user is not logged in, then login
+    // check if the user is logged in is admin
     if (
       this.loginDetails.email === 'admin' ||
       this.loginDetails.password === 'admin'
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
         window.location.reload();
       });
     } else {
+      // call the login function from the service to login the user
       this._service.login(this.loginDetails).subscribe(
         (data) => {
           localStorage.setItem('token', JSON.stringify(data));

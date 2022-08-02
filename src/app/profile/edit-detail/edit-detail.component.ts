@@ -18,13 +18,16 @@ export class EditDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // get the detail_id from the url
     this.detail_id = this.aRouter.snapshot.params['detail_id'];
+    // get the detail from the database using the detail_id
     this.detailService.getDetailById(this.detail_id).subscribe((Data) => {
       this.detail = Data;
     });
   }
 
   onSubmit() {
+    // update the detail in the database using the detail_id and the detail object
     this.detailService
       .updateDetail(this.detail_id, this.detail)
       .subscribe(() => {

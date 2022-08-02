@@ -35,7 +35,7 @@ export class PlanPageComponent implements OnInit {
       this.detail = res;
     });
 
-    // get all plans by type
+    // get all plans by a type(Car/Bike)
     await this.planService.getPlans().subscribe((res) => {
       this.plansByType = res.filter((plan) => plan.type == this.detail.type);
     });

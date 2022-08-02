@@ -1,3 +1,4 @@
+// This is the userViewModel
 export interface userViewModel {
   name: string;
   email: string;

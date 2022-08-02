@@ -22,11 +22,12 @@ export class AdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    // check if user is logged in is admin or not
     if (!this.auth.isAdmin()) {
       this.router.navigate(['/']);
       return false;
     }
-
+    // if user is logged in is admin, return true
     return true;
   }
 }

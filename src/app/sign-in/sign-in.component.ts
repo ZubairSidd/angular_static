@@ -20,15 +20,18 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(data: any) {
+    // register the user in database
     this.userService.registerUser(data).subscribe(
       (res) => {
         console.log(res);
         this.router.navigate(['/login']);
       },
+      // if error, then show the error message
       (error: any) => {
         this.errorMessage = error.error;
       }
     );
   }
+  // check if the user is logged in
   isLogin: boolean = this.auth.checkLogin();
 }

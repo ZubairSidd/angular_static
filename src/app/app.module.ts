@@ -26,7 +26,7 @@ import { ForgetPasswordComponent } from './login/forget-password/forget-password
 
 import { TravelPlanComponent } from './travel-plan/travel-plan.component';
 import { PlanComponent } from './admin/plan/plan.component';
-import { NewComponent } from './admin/plan/new/new.component';
+
 import { TravelCheckoutComponent } from './travel-plan/travel-checkout/travel-checkout.component';
 import { EditUserComponent } from './profile/edit-user/edit-user.component';
 import { EditDetailComponent } from './profile/edit-detail/edit-detail.component';
@@ -54,7 +54,7 @@ import { EditDetailComponent } from './profile/edit-detail/edit-detail.component
     ForgetPasswordComponent,
     TravelPlanComponent,
     PlanComponent,
-    NewComponent,
+
     TravelCheckoutComponent,
     EditUserComponent,
     EditDetailComponent,

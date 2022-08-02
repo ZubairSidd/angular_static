@@ -18,6 +18,7 @@ export class TravelPlanComponent implements OnInit {
   constructor(private planService: PlanService) {}
 
   ngOnInit(): void {
+    // get all the plans from the database of type Travel Plan
     this.planService.getPlans().subscribe((data) => {
       this.allPlans = data.filter((d) => d.type == 'Travel');
       console.log(this.allPlans);

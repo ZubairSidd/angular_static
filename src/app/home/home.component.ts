@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  // check if user is logged in
   checkLogin() {
     if (localStorage.getItem('token') != null) return true;
     return false;
