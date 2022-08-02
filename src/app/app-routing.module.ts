@@ -95,7 +95,7 @@ const routes: Routes = [
   },
 
   { path:'contact',component:ContactComponent},
-  { path:'faq',component:FAQComponent}
+  { path:'faq',component:FAQComponent},
 
 
   {

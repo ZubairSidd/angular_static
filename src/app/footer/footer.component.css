@@ -5,3 +5,8 @@ a{
 h4{
   padding-left: 2rem;;
 }
+
+.footer-padding {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
