@@ -50,7 +50,7 @@
                         *ngIf="email.touched && email.invalid"
                         class="alert alert-danger px-3"
                       >
-                        <p *ngIf="email.hasError('required')">
+                        <p class="p-0 m-0" *ngIf="email.hasError('required')">
                           email is required
                         </p>
                       </div>
@@ -73,7 +73,7 @@
                         *ngIf="password.touched && password.invalid"
                         class="alert alert-danger px-3"
                       >
-                        <p *ngIf="password.hasError('required')">
+                        <p class="p-0 m-0"  *ngIf="password.hasError('required')">
                           password is required
                         </p>
                       </div>
